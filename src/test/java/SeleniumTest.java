@@ -28,11 +28,11 @@ public class SeleniumTest {
     @Test
     public void test1() throws InterruptedException
     {
-      String expected = "French language";
+      String expected = "French language - Wikipedia";
       WebElement barreRecherche = driver.findElement(By.id("lst-ib"));
       barreRecherche.sendKeys("french");
       barreRecherche.sendKeys(Keys.ENTER);
-      WebElement premierResultat = driver.findElement(By.xpath("//*[@id=\"rso\"]/div[2]/div/div/div/div/h3/a"));
+      WebElement premierResultat = driver.findElement(By.cssSelector(".rc >.r > a"));
         Assert.assertEquals(expected, premierResultat.getText());
       Thread.sleep(1000);
 
@@ -43,8 +43,8 @@ public class SeleniumTest {
     {
         WebElement barreRecherche = driver.findElement(By.id("lst-ib"));
         barreRecherche.sendKeys("canelé");
-        Thread.sleep(1000);
-        WebElement buttonRecherche = driver.findElement(By.className("lsb"));
+      //  Thread.sleep(1000);
+        WebElement buttonRecherche = driver.findElement(By.cssSelector(".rc >.r > a"));
         buttonRecherche.click();
         Thread.sleep(1000);
     }
