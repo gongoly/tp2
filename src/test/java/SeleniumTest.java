@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.opera.OperaDriver;
 
 import java.util.concurrent.TimeUnit;
 
@@ -23,7 +24,10 @@ public class SeleniumTest {
             driver = new ChromeDriver();
         }else  if (browser.equals("firefox")){
             driver = new FirefoxDriver();
-        }else  {
+        }else  if (browser.equals("opera")){
+            driver = new OperaDriver();
+        }
+        else  {
             driver = new ChromeDriver();
         }
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -54,7 +58,7 @@ public class SeleniumTest {
         WebElement barreRecherche = driver.findElement(By.id("lst-ib"));
         barreRecherche.sendKeys("canelé");
       //  Thread.sleep(1000);
-        WebElement buttonRecherche = driver.findElement(By.cssSelector(".rc >.r > a"));
+        WebElement buttonRecherche = driver.findElement(By.className("lsb"));
         buttonRecherche.click();
         Thread.sleep(1000);
     }
